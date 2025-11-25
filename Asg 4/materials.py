@@ -2,8 +2,14 @@ class Material:
     def __init__(self, name:str, material_type:str, density:float, youngs_modulus:float, yield_strength:float):
         self.name = str(name)
         self.material_type = str(material_type)
+        if density <= 0:
+            raise ValueError("density must be positive")
         self.density = float(density)  # in kg/m^3
+        if youngs_modulus < 0:
+            raise ValueError("youngs_modulus must be non-negative")
         self.youngs_modulus = float(youngs_modulus)  # in Pa
+        if yield_strength < 0:
+            raise ValueError("yield_strength must be non-negative")
         self.yield_strength = float(yield_strength)  # in Pa
 
     def get_specific_strength(self):
@@ -15,7 +21,6 @@ class Material:
         s += f"\nDensity: {self.density} kg/m^3"
         s += f"\nYoung's Modulus: {self.youngs_modulus:.2e} Pa"
         s += f"\nYield Strength: {self.yield_strength:.2e} Pa"
-        
         s += f"\nSpecific Strength: {self.get_specific_strength():.2e} Pa·m^3/kg"
         return s
     
