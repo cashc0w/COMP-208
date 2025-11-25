@@ -122,5 +122,6 @@ class MaterialLibrary:
             elif key == "yield_strength":
                 mat.set_yield_strength(value)
             else:
-                raise ValueError(f"Unknown property: {key}")
+                return False #an error happened in one of the keys
+        return True
     

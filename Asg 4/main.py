@@ -17,6 +17,7 @@ def main():
     print("Steel before update:\n"+str(steel))
     steel.set_yield_strength(210e6) # Updated yield strength from new test results
     print("Steel after update:\n"+str(steel))
+    
     # Update material properties using update_material method
     print("Aluminum in library before update:\n"+str(library.find_by_name("Aluminum 6061")))
     library.update_material("Aluminum 6061", {"density": 2710,"yield_strength": 280e6}) # Corrected data using dictionary
@@ -24,7 +25,7 @@ def main():
     
     # Perform calculations
     applied_force = 10000 # 10 kN
-    cross_section = -0.01 # 100 cm²
+    cross_section = 0.01 # 100 cm²
     stress = calculate_stress(applied_force, cross_section)
     safety_factor = calculate_safety_factor(steel.get_yield_strength(),stress)
     print(f"Calculated stress: {stress} Pa")
