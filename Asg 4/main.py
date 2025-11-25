@@ -24,7 +24,7 @@ def main():
     
     # Perform calculations
     applied_force = 10000 # 10 kN
-    cross_section = 0.01 # 100 cm²
+    cross_section = -0.01 # 100 cm²
     stress = calculate_stress(applied_force, cross_section)
     safety_factor = calculate_safety_factor(steel.get_yield_strength(),stress)
     print(f"Calculated stress: {stress} Pa")

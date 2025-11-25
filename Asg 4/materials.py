@@ -5,11 +5,11 @@ class Material:
         if density <= 0:
             raise ValueError("density must be positive")
         self.density = float(density)  # in kg/m^3
-        if youngs_modulus < 0:
-            raise ValueError("youngs_modulus must be non-negative")
+        if youngs_modulus <= 0:
+            raise ValueError("youngs_modulus must be positive")
         self.youngs_modulus = float(youngs_modulus)  # in Pa
-        if yield_strength < 0:
-            raise ValueError("yield_strength must be non-negative")
+        if yield_strength <= 0:
+            raise ValueError("yield_strength must be positive")
         self.yield_strength = float(yield_strength)  # in Pa
 
     def get_specific_strength(self):
@@ -70,10 +70,16 @@ class MaterialLibrary:
     def __init__(self, list_of_materials=None):
         self.library = []
         if not list_of_materials is None:
+            for mat in list_of_materials:
+                if not isinstance(mat, Material):
+                    raise ValueError("All items in list_of_materials must be Material instances")
             self.library = list_of_materials
         
 
     def add_material(self, material: Material):
+        for mat in self.library:
+            if mat.get_name() == material.get_name():
+                raise ValueError("Material with this name already exists in library")
         self.library.append(material)
 
     def find_by_name(self, name: str):
