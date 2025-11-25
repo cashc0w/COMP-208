@@ -30,7 +30,7 @@ class Material:
         return self.name
 
     def set_name(self, new_name: str):
-        self._name = str(new_name)
+        self.name = str(new_name)
 
     # material_type
     def get_material_type(self):
@@ -55,7 +55,7 @@ class Material:
     def set_youngs_modulus(self, new_modulus: float):
         if new_modulus < 0:
             raise ValueError("youngs_modulus must be non-negative")
-        self._youngs_modulus = float(new_modulus)
+        self.youngs_modulus = float(new_modulus)
 
     # yield_strength (Pa)
     def get_yield_strength(self):

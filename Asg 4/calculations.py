@@ -1,4 +1,6 @@
 def calculate_stress(force, area):
+    if area < 0:
+        raise ValueError("Area must be non-zero and positive to calculate stress.")
     stress = float(force) / float(area)
     return stress
 

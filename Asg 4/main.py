@@ -29,8 +29,12 @@ def main():
     safety_factor = calculate_safety_factor(steel.get_yield_strength(),stress)
     print(f"Calculated stress: {stress} Pa")
     print(f"Safety factor for Steel: {safety_factor}")
+    volume = 0.005 # m³
+    weight = calculate_weight(carbon_fiber, volume) 
+    print(f"Weight of {volume} m³ of Carbon Fiber: {weight} N")
     # Find best material
     best_material = library.get_best_specific_strength()
     print(f"Best specific strength: {best_material.get_name()}")
+    
 if __name__ == "__main__":
     main()
