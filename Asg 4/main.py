@@ -1,3 +1,10 @@
+'''
+Assignment 4
+Noah Pouliot
+Student ID: 261282564
+By submitting this file, I declare that I did the assignment on
+my own according to the rules specified in the assignment PDF
+'''
 from materials import Material, MaterialLibrary
 from calculations import calculate_stress, calculate_safety_factor, calculate_weight
 def main():

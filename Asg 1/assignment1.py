@@ -44,7 +44,7 @@ def main():
         sleep_environment_quality, caffeine_consumption, exercise_duration, stress_level)
     sleep_quality_group = get_sleep_quality_group(wsqi)
 
-    print("Your Weighted Sleep Quality Index (WSQI) is",wsqi,"and is considered " +sleep_quality_group+".")
+    print("Your Weighted Sleep Quality Index (WSQI) is"+str(wsqi)+"and is considered " +str(sleep_quality_group)+".")
     if sleep_quality_group == "Poor":
         print("Please consider the following recommendations:")
         if average_sleep_time < 7:
